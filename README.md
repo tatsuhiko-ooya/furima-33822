@@ -44,15 +44,11 @@
 | -------------- | ------------ | ------------------------------ |
 | user        | references   | null: false, foreign_key: true |
 | product     | references   | null: false ,foreign_key: true |
-| address_id     | references   | null: false, foreign_key: true |
-| card_id        | references   | null: false ,foreign_key: true |
-
 ### Association
 
 - belongs_to :user
 - belongs_to :production
 - has_one :address
-- has_one :card
 
 ## addresses テーブル
 
@@ -62,22 +58,9 @@
 | prefecture_id   | integer       | null: false                    |
 | block           | string       | null: false                    |
 | building        | string       |                                |
-| phone_number    | integer      | null: false                    |
+| phone_number    | string       | null: false                    |
 | city            | string       | null: false                    |
 | transaction     | references   | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :transaction
-
-## carss テーブル
-
-| Column             | Type         | Options                        |
-| ------------------ | ------------ | ------------------------------ |
-| card_number        | string       | null: false                    |
-| security_code      | string       | null: false                    |
-| dead_line          | string       | null: false                    |
-| transaction_id     | string       | null: false, foreign_key: true |
 
 ### Association
 
