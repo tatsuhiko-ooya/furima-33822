@@ -42,8 +42,8 @@
 
 | Column         | Type         | Options                        |
 | -------------- | ------------ | ------------------------------ |
-| user_id        | references   | null: false, foreign_key: true |
-| product_id     | references   | null: false ,foreign_key: true |
+| user        | references   | null: false, foreign_key: true |
+| product     | references   | null: false ,foreign_key: true |
 | address_id     | references   | null: false, foreign_key: true |
 | card_id        | references   | null: false ,foreign_key: true |
 
@@ -59,12 +59,12 @@
 | Column          | Type         | Options                        |
 | --------------- | ------------ | ------------------------------ |
 | post_code       | string       | null: false                    |
-| prefecture_id   | string       | null: false                    |
+| prefecture_id   | integer       | null: false                    |
 | block           | string       | null: false                    |
 | building        | string       |                                |
 | phone_number    | integer      | null: false                    |
 | city            | string       | null: false                    |
-| transaction_id  | references   | null: false, foreign_key: true |
+| transaction     | references   | null: false, foreign_key: true |
 
 ### Association
 
