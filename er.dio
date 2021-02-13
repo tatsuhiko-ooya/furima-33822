@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-12T14:12:15.543Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="5wvbEBrBX_zNauKy67Vq" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-13T02:29:23.296Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="jfmJFMGxXDykeieZ03C7" version="14.2.4" type="embed">
     <diagram id="8cWZtGtebABiD0rWopYu" name="ページ1">
         <mxGraphModel dx="728" dy="609" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
@@ -52,10 +52,10 @@
                 <mxCell id="47" value="user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
                     <mxGeometry y="296" width="160" height="36" as="geometry"/>
                 </mxCell>
-                <mxCell id="67" value="transaction_id&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="11">
+                <mxCell id="67" value="transaction_id&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
                     <mxGeometry y="332" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="68" value="transaction_status" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="11">
+                <mxCell id="68" value="transaction_status" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
                     <mxGeometry y="362" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=ERmany;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endSize=30;startSize=30;" parent="1" target="13" edge="1">
@@ -136,7 +136,7 @@
                 <mxCell id="58" value="dead_line" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="55" vertex="1">
                     <mxGeometry y="86" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="66" value="soldout_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="55" vertex="1">
+                <mxCell id="66" value="transaction_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="55" vertex="1">
                     <mxGeometry y="116" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.4;entryY=-0.024;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERone;startFill=0;startSize=30;endArrow=ERone;endFill=0;endSize=30;" parent="1" source="48" target="51" edge="1">
