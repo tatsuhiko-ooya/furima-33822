@@ -30,7 +30,6 @@
 | prefecture_id     | integer    | null: false                    |
 | days_id           | integer    | null: false                    |
 | price             | integer    | null: false                    |
-| transaction_status| boolean    | null: false                    |
 | user              | references | null: false, foreign_key: true |
 
 ### Association
