@@ -5,7 +5,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :birth_day
-    with_options format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: '平仮名、全角カタカナ、漢字のみ使用可能です。' } do
+    with_options format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: '平仮名、全角カタカナ、漢字のみ使用可能です。' } do
       validates :last_name
       validates :first_name
     end
