@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  #エラー防止のために記述しています
+  #エラー防止のために記述しています。メンターさんに許可をいただいています。
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
     get '/users/password', to: 'devise/passwords#new'
