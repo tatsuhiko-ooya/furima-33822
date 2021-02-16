@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     get '/users/password', to: 'devise/passwords#new'
   end
   root to: "products#index"
+
+  resources :products
 end
