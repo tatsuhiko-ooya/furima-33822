@@ -19,7 +19,7 @@ class Product < ApplicationRecord
       validates :days_id
       validates :prefecture_id
     end
-    validates :price, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' },
-                      inclusion: { in: 300..9999999 } #半角数字のみ300~9999999にすること
+    validates :price, inclusion: { in: 300..9999999 },
+                      format:    { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
   end
 end
