@@ -98,21 +98,21 @@ RSpec.describe Product, type: :model do
       end
 
       it 'priceが全角数字だと新規登録できない' do
-        @product.price = "さんびゃく"
+        @product.price = "さんびゃくえん"
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not included in the list")
+        expect(@product.errors.full_messages).to include("Price is not a number")
       end
 
       it 'priceが299以下だと新規登録できない' do
         @product.price = 299
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not included in the list")
+        expect(@product.errors.full_messages).to include("Price must be greater than 299")
       end
 
       it 'priceが10000000以上だと新規登録できない' do
         @product.price = 10000000
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not included in the list")
+        expect(@product.errors.full_messages).to include("Price must be less than 10000000")
       end
 
       it '@productに紐づくuserが存在しない場合、新規登録できない' do
