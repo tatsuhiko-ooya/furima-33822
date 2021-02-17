@@ -115,6 +115,18 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("Price must be less than 10000000")
       end
 
+      it 'priceが半角英数字混合だと新規登録できない' do
+        @product.price = "abc123"
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is not a number")
+      end
+
+      it 'priceが半角英字だと新規登録できない' do
+        @product.price = "abcdef"
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is not a number")
+      end
+
       it '@productに紐づくuserが存在しない場合、新規登録できない' do
         @product.user = nil
         @product.valid?
