@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :products
+  resources :transactions, only: [:create, :index]
 end
