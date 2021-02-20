@@ -34,7 +34,7 @@ RSpec.describe Product, type: :model do
       it 'category_idが1だと新規登録できない' do
         @product.category_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Category must be other than 1")
+        expect(@product.errors.full_messages).to include('Category must be other than 1')
       end
 
       it 'condition_idが空だと新規登録できない' do
@@ -46,7 +46,7 @@ RSpec.describe Product, type: :model do
       it 'condition_idが1だと新規登録できない' do
         @product.condition_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Condition must be other than 1")
+        expect(@product.errors.full_messages).to include('Condition must be other than 1')
       end
 
       it 'days_idが空だと新規登録できない' do
@@ -58,7 +58,7 @@ RSpec.describe Product, type: :model do
       it 'days_idが1だと新規登録できない' do
         @product.days_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Days must be other than 1")
+        expect(@product.errors.full_messages).to include('Days must be other than 1')
       end
 
       it 'delivery_fee_idが空だと新規登録できない' do
@@ -70,7 +70,7 @@ RSpec.describe Product, type: :model do
       it 'delivery_fee_idが1だと新規登録できない' do
         @product.delivery_fee_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Delivery fee must be other than 1")
+        expect(@product.errors.full_messages).to include('Delivery fee must be other than 1')
       end
 
       it 'prefecture_idが空だと新規登録できない' do
@@ -82,7 +82,7 @@ RSpec.describe Product, type: :model do
       it 'prefecture_idが1だと新規登録できない' do
         @product.prefecture_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@product.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
       it '商品画像が空だと新規登録できない' do
@@ -98,39 +98,39 @@ RSpec.describe Product, type: :model do
       end
 
       it 'priceが全角数字だと新規登録できない' do
-        @product.price = "さんびゃくえん"
+        @product.price = 'さんびゃくえん'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが299以下だと新規登録できない' do
         @product.price = 299
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price must be greater than 299")
+        expect(@product.errors.full_messages).to include('Price must be greater than 299')
       end
 
       it 'priceが10000000以上だと新規登録できない' do
-        @product.price = 10000000
+        @product.price = 10_000_000
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price must be less than 10000000")
+        expect(@product.errors.full_messages).to include('Price must be less than 10000000')
       end
 
       it 'priceが半角英数字混合だと新規登録できない' do
-        @product.price = "abc123"
+        @product.price = 'abc123'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが半角英字だと新規登録できない' do
-        @product.price = "abcdef"
+        @product.price = 'abcdef'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
 
       it '@productに紐づくuserが存在しない場合、新規登録できない' do
         @product.user = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include("User must exist")
+        expect(@product.errors.full_messages).to include('User must exist')
       end
     end
   end

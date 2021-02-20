@@ -19,6 +19,6 @@ class Product < ApplicationRecord
       validates :days_id
       validates :prefecture_id
     end
-    validates :price, numericality: {greater_than: 299, less_than: 10000000, only_integer: true }
+    validates :price, numericality: { greater_than: 299, less_than: 10_000_000, only_integer: true }
   end
 end

@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     before do
       @user = FactoryBot.build(:user)
     end
-    context '保存できる場合' do 
+    context '保存できる場合' do
       it 'すべての項目を正しく入力するとユーザー新規登録できる' do
         expect(@user).to be_valid
       end
@@ -27,13 +27,13 @@ RSpec.describe User, type: :model do
         @user.save
         user1 = FactoryBot.build(:user, email: @user.email)
         user1.valid?
-        expect(user1.errors.full_messages).to include("Email has already been taken")
+        expect(user1.errors.full_messages).to include('Email has already been taken')
       end
 
       it 'emailに@が含まれていなければ新規登録できない' do
-        @user.email = "testtest"
+        @user.email = 'testtest'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
 
       it 'passwordが空だと新規登録できない' do
@@ -43,32 +43,32 @@ RSpec.describe User, type: :model do
       end
 
       it 'passwordが5文字以下だと新規登録できない' do
-        @user.password = "12345"
+        @user.password = '12345'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
 
       it 'passwordが数字のみだと新規登録できない' do
-        @user.password = "123456"
+        @user.password = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password 英数字を混合させてください")
+        expect(@user.errors.full_messages).to include('Password 英数字を混合させてください')
       end
 
       it 'passwordが英字のみだと新規登録できない' do
-        @user.password = "abcdefg"
+        @user.password = 'abcdefg'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password 英数字を混合させてください")
+        expect(@user.errors.full_messages).to include('Password 英数字を混合させてください')
       end
 
       it 'passwordが全角だと新規登録できない' do
-        @user.password = "パスワードです"
+        @user.password = 'パスワードです'
         @user.valid?
         binding.pry
-        expect(@user.errors.full_messages).to include("Password 英数字を混合させてください")
+        expect(@user.errors.full_messages).to include('Password 英数字を混合させてください')
       end
 
       it 'passwordとpassword_confirmationが同じ値でなければ新規登録できない' do
-        @user.password = "testpassword"
+        @user.password = 'testpassword'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
@@ -80,9 +80,9 @@ RSpec.describe User, type: :model do
       end
 
       it 'last_nameが全角以外だと新規登録できない' do
-        @user.last_name = "test"
+        @user.last_name = 'test'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name 平仮名、全角カタカナ、漢字のみ使用可能です。")
+        expect(@user.errors.full_messages).to include('Last name 平仮名、全角カタカナ、漢字のみ使用可能です。')
       end
 
       it 'first_nameが空だと新規登録できない' do
@@ -92,9 +92,9 @@ RSpec.describe User, type: :model do
       end
 
       it 'first_nameが全角以外だと新規登録できない' do
-        @user.first_name = "test"
+        @user.first_name = 'test'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name 平仮名、全角カタカナ、漢字のみ使用可能です。")
+        expect(@user.errors.full_messages).to include('First name 平仮名、全角カタカナ、漢字のみ使用可能です。')
       end
 
       it 'last_name_kanaが空だと新規登録できない' do
@@ -104,9 +104,9 @@ RSpec.describe User, type: :model do
       end
 
       it 'last_name_kanaが全角以外だと新規登録できない' do
-        @user.last_name_kana = "てすと"
+        @user.last_name_kana = 'てすと'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana 全角カタカナのみ使用可能です。")
+        expect(@user.errors.full_messages).to include('Last name kana 全角カタカナのみ使用可能です。')
       end
 
       it 'first_name_kanaが空だと新規登録できない' do
@@ -116,9 +116,9 @@ RSpec.describe User, type: :model do
       end
 
       it 'first_name_kanaが全角以外だと新規登録できない' do
-        @user.first_name_kana = "てすと"
+        @user.first_name_kana = 'てすと'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana 全角カタカナのみ使用可能です。")
+        expect(@user.errors.full_messages).to include('First name kana 全角カタカナのみ使用可能です。')
       end
 
       it 'birth_dayが空だと新規登録できない' do

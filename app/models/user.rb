@@ -17,5 +17,5 @@ class User < ApplicationRecord
     end
   end
 
-   validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "英数字を混合させてください"}
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '英数字を混合させてください' }
 end
