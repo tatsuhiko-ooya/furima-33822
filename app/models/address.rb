@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
-  belongs_to :transaction
+  belongs_to :order
 
   with_options presence: true do
     validates :post_code
