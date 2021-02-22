@@ -3,9 +3,9 @@ class OrderAddress
   attr_accessor :post_code, :prefecture_id, :city, :building, :phone_number, :block, :user_id, :product_id, :token
 
   with_options presence: true do
-    validates :post_code
+    validates :post_code, format: {with: /\A\d{3}[-]\d{4}\z/}
     validates :city
-    validates :phone_number
+    validates :phone_number, format: {with: /\A\d{10}\z/}
     validates :block
     validates :user_id
     validates :product_id

@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :find_product
   def index
-    @product = Product.find(params[:product_id])
     @order_address = OrderAddress.new
   end
 
   def create
-    @product = Product.find(params[:product_id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       pay_item
@@ -18,9 +18,15 @@ class OrdersController < ApplicationController
 
   private
 
+  def find_product
+    @product = Product.find(params[:product_id])
+    if @product.user == current_user || @product.order.present?
+        redirect_to root_path
+    end
+  end
+
   def order_params
     params.require(:order_address).permit(:post_code, :prefecture_id, :city, :building, :phone_number, :block).merge(user_id: current_user.id, product_id: params[:product_id],token: params[:token])
-    # params.permit(:post_code, :prefecture_id, :city, :building, :phone_number, :block).merge(user_id: current_user.id, product_id: params[:product_id])
   end
 
   def pay_item
@@ -31,11 +37,5 @@ class OrdersController < ApplicationController
         currency: 'jpy'
     )
   end
-  # def order_params
-  #   params.permit.merge(user_id: current_user.id, product_id: params[:product_id])
-  # end
 
-  # def address_params
-  #   params.permit(:post_code, :prefecture_id, :city, :building, :phone_number, :block).merge(order_id: @order.id)
-  # end
 end
