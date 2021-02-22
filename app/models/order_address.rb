@@ -5,7 +5,7 @@ class OrderAddress
   with_options presence: true do
     validates :post_code, format: {with: /\A\d{3}[-]\d{4}\z/}
     validates :city
-    validates :phone_number, format: {with:/\A\d{10,11}\z/}
+    validates :phone_number, format: {with:/\A\d{9,10,11}\z/}
     validates :block
     validates :user_id
     validates :product_id
