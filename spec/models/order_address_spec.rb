@@ -82,7 +82,7 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'prefecture_idが1だと新規登録できない' do
-        @order_address.prefecture_id = "1"
+        @order_address.prefecture_id = 1
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture must be other than 1")
       end
