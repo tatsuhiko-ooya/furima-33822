@@ -21,6 +21,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    unless @product.order.nil?
+      redirect_to root_path
+    end
   end
 
   def show
