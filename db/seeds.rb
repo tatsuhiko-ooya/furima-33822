@@ -9,6 +9,7 @@ user = User.create(
   first_name_kana: "カンリシャ",
   birth_day: "1989-03-09"
   )
+  
 9.times do
   gimei = Gimei.name
   user = User.new(
