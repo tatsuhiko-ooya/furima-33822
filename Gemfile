@@ -33,9 +33,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'forgery_ja'
-  gem 'gimei'
+  # gem 'faker'
+  # gem 'forgery_ja'
+  # gem 'gimei'
 end
 
 group :development do
@@ -66,3 +66,6 @@ gem 'active_hash'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'payjp'
+gem 'faker'
+gem 'forgery_ja'
+gem 'gimei'
