@@ -1,3 +1,4 @@
+
 user = User.create(
   nickname: "adminuser",
   email: "admin@example",
@@ -25,6 +26,7 @@ user = User.create(
   )
 user.save
 end
+
 
 10.times do
   Product.create(

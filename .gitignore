@@ -29,4 +29,8 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+<<<<<<< Updated upstream
 .Ds_Store
+=======
+.Ds_Store
+>>>>>>> Stashed changes
