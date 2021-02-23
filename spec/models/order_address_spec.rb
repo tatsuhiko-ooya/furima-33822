@@ -14,6 +14,11 @@ RSpec.describe OrderAddress, type: :model do
       it 'すべての項目を正しく入力すると新規登録できる' do
         expect(@order_address).to be_valid
       end
+
+      it 'buildingが空でも新規登録できる' do
+        @order_address.building = nil
+        expect(@order_address).to be_valid
+      end
     end
     context '保存できない場合' do
       it 'post_codeが空だと新規登録できない' do
