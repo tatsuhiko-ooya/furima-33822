@@ -1,0 +1,31 @@
+<%= render 'shared/header' %>
+
+<div class = "l-container">
+  <div class = "l-side">
+    <%= render 'shared/side-list'%>
+  </div>
+  <div class = "l-main">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">ニックネーム</th>
+          <td class="user-detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">email</th>
+          <td class="user-detail-value"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">フルネーム</th>
+          <td class="user-detail-value"><%= @user.last_name %> <%= @user.first_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">誕生日</th>
+          <td class="user-detail-value"><%= @user.birth_day %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render 'shared/footer' %> 
