@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
 
   #エラー防止のために記述しています。
@@ -11,4 +12,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :orders, only: [:create, :index]
   end
+
+  resources :users, only: [:show]
 end
