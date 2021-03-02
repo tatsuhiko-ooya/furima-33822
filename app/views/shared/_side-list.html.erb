@@ -3,9 +3,9 @@
   <li><%= link_to 'いいね！一覧', '#', class: "l-side-menu-name" %></li>
   <li><%= link_to '出品中の商品', '#', class: "l-side-menu-name" %></li>
   <li><%= link_to 'コメントした商品', '#', class: "l-side-menu-name" %></li>
-  <li><%= link_to 'やることリスト', '#', class: "l-side-menu-name" %></li>
   <% if user_signed_in? && current_user == @user %>
-    <li><%= link_to 'プロフィールを編集する', '#', class: "l-side-menu-name" %></li>
-    <li><%= link_to 'アカウントを削除する', '#', class: "l-side-menu-name" %></li>
+    <li><%= link_to 'やることリスト', '#', class: "l-side-menu-name" %></li>
+    <li><%= link_to 'プロフィールを編集する', edit_user_path(current_user), class: "l-side-menu-name" %></li>
+    <li><%= link_to '退会する', '#', class: "l-side-menu-name" %></li>
   <% end %>
 </ul>
