@@ -17,6 +17,7 @@
 
 - has_many :products
 - has_many :orders
+- has_many :comments
 
 ## products テーブル
 
@@ -36,6 +37,7 @@
 
 - belongs_to :user
 - has_one :order
+- has_many :comments
 
 ## orders テーブル
 
@@ -64,3 +66,30 @@
 ### Association
 
 - belongs_to :order
+
+## comments テーブル
+
+| Column          | Type         | Options                        |
+| --------------- | ------------ | ------------------------------ |
+| message         | text         | null: false                    |
+| user            | references   | foreign_key: true              |
+| product         | references   | foreign_key: true              |
+
+
+### Association
+
+- belongs_to :user
+- belongs_to :product
+
+## likes テーブル
+
+| Column          | Type         | Options                        |
+| --------------- | ------------ | ------------------------------ |
+| user            | references   | foreign_key: true              |
+| product         | references   | foreign_key: true              |
+
+
+### Association
+
+- belongs_to :user
+- belongs_to :product
