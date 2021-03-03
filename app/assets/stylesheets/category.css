@@ -1,0 +1,32 @@
+.category-container {
+  background-color: #f5f5f5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category-list-container {
+  width: 800px;
+  margin-bottom: 50px;
+}
+.category-lists {
+}
+.category-list {
+  display: inline-block;
+  margin: 10px 0px 0px 10px;
+}
+.category-list-name {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 18%) 0px 2px 4px;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  line-height: 40px;
+  padding: 0px 30px;
+}
+.category-title {
+  font-size: 20px;
+  margin: 0 0 5px 5px;
+}
