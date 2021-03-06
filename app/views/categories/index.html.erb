@@ -4,9 +4,113 @@
     <h1 class = "category-title">カテゴリー一覧</h1>
     <ul class="category-lists">
     <% @categories.each do |category| %>
-      <li class = "category-list"><%= link_to category.name, category_path(category.id), class: "category-list-name" %></li>
+      <li class = "category_list"><%= link_to category.name, category_path(category.id), class: "category-list-name" %></li>
     <% end %>
     </ul>
+    <%# 下記にカテゴリーidを付与 %>
+    <div class = "category-field"> 
+      <%# 下記にカテゴリーの名前を付与 %>
+      <h2 class = "category-parent-title">レディース</h2>
+      <div class = "category-box">
+        <%= link_to 'すべて', '#', class: 'category-all' %>
+        <%# 下記にカテゴリーの子構造の名前を付与 %>
+        <h3 class = "category-child-title">トップス</h3>
+        <div class = "category-child-childs">
+          <ul class = "category-child-childs-lists">
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+          </ul>
+          <div class = "after"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class = "category-field"> 
+      <%# 下記にカテゴリーの名前を付与 %>
+      <h2 class = "category-parent-title">レディース</h2>
+      <div class = "category-box">
+        <%= link_to 'すべて', '#', class: 'category-all' %>
+        <%# 下記にカテゴリーの子構造の名前を付与 %>
+        <h3 class = "category-child-title">トップス</h3>
+        <div class = "category-child-childs">
+          <ul class = "category-child-childs-lists">
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+            <li class = "category-child-childs-list">シャツ</li>
+          </ul>
+          <div class = "after"></div>
+        </div>
+      </div>
+    </div>
+    
+
   </div>
 </div>
 <%= render 'shared/footer' %>

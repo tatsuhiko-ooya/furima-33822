@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
     before_action :find_category, only: :show
   def index
-    @categories = Category.where.not(id: 1)
+    @categories = Category.where(ancestry: nil)
   end
 
   def show
