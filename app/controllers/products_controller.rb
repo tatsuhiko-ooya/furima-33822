@@ -9,18 +9,14 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @category_child_array = Category.find(1).children
-    # @category_grandchild_array = Category.find(2).children
   end
 
   def get_category_child
     @category_child_array = Category.find_by(id: "#{params[:id]}", ancestry: nil).children
-    # render json: { child_array: @category_child_array}
   end
 
   def get_category_grandchild
     @category_grandchild_array = Category.find_by(id: params[:id]).children
-    # render json: { grandchild_array: @category_grandchild_array}
   end
 
   def create
@@ -68,5 +64,5 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :category_id, :condition_id, :delivery_fee_id, :prefecture_id,
                                     :days_id, :price, :image).merge(user_id: current_user.id)
-  end
+end
 end

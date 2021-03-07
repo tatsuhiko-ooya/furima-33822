@@ -63,7 +63,6 @@ RSpec.describe User, type: :model do
       it 'passwordが全角だと新規登録できない' do
         @user.password = 'パスワードです'
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include('Password 英数字を混合させてください')
       end
 

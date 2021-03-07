@@ -23,7 +23,7 @@ const category = () => {
         const childCategorySelect = document.createElement("select")
         childCategorySelect.setAttribute('class', "select-box")
         childCategorySelect.setAttribute('id', 'item-child-category')
-        childCategorySelect.setAttribute('name', 'product[category_id]')
+        childCategorySelect.setAttribute('name', 'product[child_category_id]')
         const nullOption = document.createElement("option")
         nullOption.setAttribute("value", "")
         nullOption.innerHTML = ("---")

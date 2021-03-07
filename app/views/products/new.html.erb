@@ -49,9 +49,7 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-          <%= f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '---'},{class:"select-box", id:"item-category"}) %>
-          <%# <%= f.collection_select(:category_id, @category_child_array, :id, :name, {include_blank: '---'},{class:"select-box", id:"item-category"}) %>
-          <%# <%= f.collection_select(:category_id, @category_grandchild_array, :id, :name, {include_blank: '---'},{class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '---'},{name: "product[parent_category_id]", class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
