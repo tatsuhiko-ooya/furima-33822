@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 
   def get_category_grandchild
     @category_grandchild_array = Category.find_by(id: params[:id]).children
+    # render json: { grandchild_array: @category_grandchild_array}
   end
 
   def create

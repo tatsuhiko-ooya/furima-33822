@@ -6,7 +6,7 @@
   align-items: center;
 }
 .category-list-container {
-  width: 800px;
+  width: 700px;
   margin-bottom: 50px;
 }
 .category-lists {
@@ -46,7 +46,7 @@
 }
 .category-child-title {
   padding: 15px 0 5px 5px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .category-parent-title {
   background-color: #3ccace;
@@ -61,13 +61,13 @@
 
 }
 .category-child-childs-lists {
-  margin-left: 15px;
+  margin-left: 30px;
 }
 .category-child-childs-list {
   float: left;
   width: 50%;
   font-size: 16px;
-  margin: 8px 0px;
+  margin: 4px 0px;
   padding: 0px 20px 0px 0px;
   color: #0095ee;
 }
@@ -76,5 +76,5 @@
 }
 .category-box a {
   padding-left: 5px;
-  font-size: 18px;
+  font-size: 16px;
 }
