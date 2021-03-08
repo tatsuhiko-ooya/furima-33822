@@ -19,7 +19,7 @@
 .category-list-name {
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 18%) 0px 2px 4px;
+  /* box-shadow: rgb(0 0 0 / 18%) 0px 2px 4px; */
   color: rgb(34, 34, 34);
   cursor: pointer;
   display: block;
