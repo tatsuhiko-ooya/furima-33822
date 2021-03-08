@@ -5,7 +5,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @products = @category.products
+    @products = @category.set_items
+    @products = @products.order("created_at DESC")
   end
 
   private

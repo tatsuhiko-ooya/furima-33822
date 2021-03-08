@@ -13,14 +13,14 @@
         <%# 下記にカテゴリーの名前を付与 %>
         <h2 class = "category-parent-title"><%= category.name %></h2>
         <div class = "category-box">
-          <%= link_to 'すべて', '#', class: 'category-all' %>
+          <%= link_to 'すべて', category_path(category.id), class: 'category-all' %>
           <%# 下記にカテゴリーの子構造の名前を付与 %>
           <% category.children.each do |category_child| %>
             <h3 class = "category-child-title"> <%= category_child.name %> </h3>
             <div class = "category-child-childs">
               <ul class = "category-child-childs-lists">
                 <% category_child.children.each do |category_grandchild| %>
-                  <li><%= link_to category_grandchild.name, '#', class: "category-child-childs-list"%></li>
+                  <li><%= link_to category_grandchild.name, category_path(category_grandchild.id), class: "category-child-childs-list"%></li>
                 <% end %>
               </ul>
               <div class = "after"></div>
