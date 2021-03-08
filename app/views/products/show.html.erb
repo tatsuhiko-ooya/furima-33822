@@ -39,11 +39,15 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @product.user.nickname %></td>
+          <td class="detail-value"><%= link_to @product.user.nickname, user_path(@product.user) %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @product.category.name %></td>
+          <td class="detail-value">
+            <%= link_to @product.category.root.name, category_path(@product.category.root) %>
+            <%= link_to " ＞#{@product.category.parent.name}", category_path(@product.category.parent) %>
+            <%= link_to " ＞#{@product.category.name}", category_path(@product.category) %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
@@ -98,7 +102,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href="#" class="another-item"><%= @product.category.name %>をもっと見る</a>
+  <%= link_to "#{@product.category.name}をもっと見る", category_path(@product.category), class: "another-item" %>
 </div>
 
 <%= render "shared/footer" %>

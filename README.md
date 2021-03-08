@@ -93,3 +93,17 @@
 
 - belongs_to :user
 - belongs_to :product
+
+## categories テーブル
+
+| Column          | Type         | Options                        |
+| --------------- | ------------ | ------------------------------ |
+| name            | string       | null: false                    |
+| ancestry        | string       |                                |
+
+
+### Association
+
+- has_many :products
+- has_ancestry
+

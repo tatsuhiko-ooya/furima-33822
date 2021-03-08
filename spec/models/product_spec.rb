@@ -3,11 +3,13 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   describe 'create' do
     before do
-      @product = FactoryBot.build(:product)
+      @category = FactoryBot.create(:category)
+      @product = FactoryBot.build(:product, category_id: @category.id)
     end
 
     context '保存できる場合' do
       it 'すべての項目を正しく入力すると新規登録できる' do
+        binding.pry
         expect(@product).to be_valid
       end
     end
@@ -31,11 +33,6 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("Category can't be blank")
       end
 
-      it 'category_idが1だと新規登録できない' do
-        @product.category_id = 1
-        @product.valid?
-        expect(@product.errors.full_messages).to include('Category must be other than 1')
-      end
 
       it 'condition_idが空だと新規登録できない' do
         @product.condition_id = nil

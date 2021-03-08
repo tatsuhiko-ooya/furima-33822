@@ -13,8 +13,8 @@ class Product < ApplicationRecord
     validates :name
     validates :description
     validates :image
+    validates :category_id
     with_options numericality: { other_than: 1 } do
-      validates :category_id
       validates :condition_id
       validates :delivery_fee_id
       validates :days_id

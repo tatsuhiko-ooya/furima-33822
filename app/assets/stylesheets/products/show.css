@@ -96,6 +96,10 @@
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
+  
+}
+.detail-value a {
+  color: #0095ee;
 }
 
 .option {

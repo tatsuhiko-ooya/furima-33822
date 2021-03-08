@@ -1,18 +1,26 @@
-class Category < ActiveHash::Base
-  self.data = [
-    { id: 1, name: '---' },
-    { id: 2, name: 'レディース' },
-    { id: 3, name: 'メンター' },
-    { id: 4, name: 'ベビー・キッズ' },
-    { id: 5, name: 'インテリア・住まい・小物' },
-    { id: 6, name: '本・音楽・ゲーム' },
-    { id: 7, name: 'おもちゃ・ホビー・グッズ' },
-    { id: 8, name: '家電・スマホ・カメラ' },
-    { id: 9, name: 'スポーツ・レジャー' },
-    { id: 10, name: 'ハンドメイド' },
-    { id: 11, name: 'その他' }
-  ]
-
-  include ActiveHash::Associations
+class Category < ApplicationRecord
   has_many :products
+  has_ancestry
+
+  validates :name, presence: true
+
+
+  def set_items
+    if self.root?
+      first_id = self.indirects.first.id
+      last_id = self.indirects.last.id
+      products = Product.where(category_id: first_id..last_id)
+      return products
+    elsif self.has_children?
+      first_id = self.children.first.id
+      last_id = self.children.last.id
+      products = Product.where(category_id: first_id..last_id)
+      return products
+    else
+      return self.products
+    end
+  end
+
 end
+
+
