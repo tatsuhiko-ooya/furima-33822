@@ -68,3 +68,7 @@ gem 'payjp'
 gem 'aws-sdk-s3',require: false
 gem 'ransack'
 gem 'ancestry'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
