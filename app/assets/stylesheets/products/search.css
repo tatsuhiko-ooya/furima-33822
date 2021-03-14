@@ -1,0 +1,40 @@
+.search-form-container {
+  padding: 10px
+}
+.search-form-container h1 {
+  font-size: 18px;
+  margin: 5px 0 5px 0;
+  font-weight: bold;
+}
+.search-box {
+  margin-bottom: 15px;
+}
+.search-label {
+  display: block;
+  font-size: 15px;
+  margin-left: 5px;
+
+}
+.search-input {
+  height: 40px;
+  width: 100%;
+}
+.search-price-input {
+  height: 40px;
+  width: 38%;
+  text-align: right;
+}
+.details-search-button {
+  height: 40px;
+  width: 100%;
+  background-color: #3ccace;
+}
+
+
+
+.search-item-lists {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

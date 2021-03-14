@@ -1,0 +1,70 @@
+<%= render 'shared/header' %>
+
+<div class = "l-container">
+  <div class = "l-side">
+    <div class = "search-form-container">
+      <h1>詳細検索</h1>
+        <%= search_form_for @p, url: search_products_path, id: "detail-product_search" do |f|%>
+        <div class = 'search-box'>
+          <%= f.label :name_cont, '商品名で探す', class: "search-label" %>
+          <%= f.text_field :name_cont, placeholder: '商品名を入力...', class: "search-input" %>
+        </div>
+        <div class = 'search-box'>
+          <%= f.label :category_id_in, 'カテゴリーを選択する', class: "search-label" %>
+          <%= f.collection_select :category_id_in, @category_column, :id, :name, {include_blank: "指定なし"}, {class: "search-input", id: "item-category"}  %>
+        </div>
+        <div class = 'search-box'>
+          <%= f.label :condition_id_eq, '商品の状態', class: "search-label" %>
+          <%= f.collection_select :condition_id_eq, @condition_column, :id, :name, {include_blank: "指定なし"}, {class: "search-input"} %>
+        </div>
+        <div class = 'search-box'>
+          <%= f.label :delivery_fee_id_eq, '送料', class: "search-label" %>
+          <%= f.collection_select :delivery_fee_id_eq, @delivery_fee_column, :id, :name, {include_blank: "指定なし"}, {class: "search-input"} %>
+        </div>
+        <div class = 'search-box'>
+          <%= f.label :price, '価格', class: "search-label" %>
+          <%= f.text_field :price_gteq, placeholder: '¥min', class: "search-price-input" %>
+          <span>円 ~ </span>
+          <%= f.text_field :price_lteq, placeholder: '¥max', class: "search-price-input" %>
+          <span>円</span>
+        </div>
+
+        <%= f.submit "検索", class: "details-search-button" %>
+      <% end %>
+    </div>
+  </div>
+  <div class = "l-main">
+    <h2 class = "search-result">検索結果</h2>
+    <ul class='search-item-lists'>
+      <% if @products.any? %>
+          <% @products.each do |product| %>
+            <% if product.order.nil? %>
+              <li class='list'>
+                <%= link_to product_path(product) do %> 
+                  <div class='item-img-content'>
+                    <%= image_tag product.image, class: "item-img" %>
+                  </div>
+                  <div class='item-info'>
+                    <h3 class='item-name'>
+                      <%= product.name %>
+                    </h3>
+                    <div class='item-price'>
+                      <span><%= product.price %>円<br><%= product.delivery_fee.name %></span>
+                      <div class='star-btn'>
+                        <%= image_tag "star.png", class:"star-icon" %>
+                        <span class='star-count'>0</span>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+      <% else %>
+        <div>選択したカテゴリーに商品はありません<div>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
