@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get 'get_category_child', default: { format: 'json'}
       get 'get_category_grandchild', default: { format: 'json'}
     end
+    collection do
+      get 'search'
+    end
     resources :orders, only: [:create, :index]
   end
 

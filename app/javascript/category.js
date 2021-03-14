@@ -19,11 +19,16 @@ const category = () => {
           }
         }
         const childCategories = XHR.response
-        
+        let childClassName = "select-box"
+        let childParamName = "product[child_category_id]"
+        if (location.pathname.match("products/search")){
+          childClassName = "search-input"
+          childParamName = "q[category_id_in]"
+        }
         const childCategorySelect = document.createElement("select")
-        childCategorySelect.setAttribute('class', "select-box")
+        childCategorySelect.setAttribute('class', childClassName)
         childCategorySelect.setAttribute('id', 'item-child-category')
-        childCategorySelect.setAttribute('name', 'product[child_category_id]')
+        childCategorySelect.setAttribute('name', childParamName)
         const nullOption = document.createElement("option")
         nullOption.setAttribute("value", "")
         nullOption.innerHTML = ("---")
@@ -58,11 +63,16 @@ const category = () => {
               
               
               const grandChildCategories = XHR.response
-              
+              let grandChildClassName = "select-box"
+              let grandChildParamName = "product[child_category_id]"
+              if (location.pathname.match("products/search")){
+                grandChildClassName = "search-input"
+                grandChildParamName = "q[category_id_in]"
+              }
               const grandChildCategorySelect = document.createElement("select")
-              grandChildCategorySelect.setAttribute('class', "select-box")
+              grandChildCategorySelect.setAttribute('class', grandChildClassName)
               grandChildCategorySelect.setAttribute('id', 'item-grandchild-category')
-              grandChildCategorySelect.setAttribute('name', 'product[category_id]')
+              grandChildCategorySelect.setAttribute('name', grandChildParamName)
               const nullOption = document.createElement("option")
               nullOption.setAttribute("value", "")
               nullOption.innerHTML = ("---")
@@ -92,5 +102,24 @@ const category = () => {
            }
     }
   })
+  if (location.pathname.match("products/search")){
+    const searchForm = document.getElementById("detail-product_search")
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (document.getElementById("item-child-category")){
+        if (document.getElementById("item-category").value != "" && document.getElementById("item-child-category").value == ""){
+          document.getElementById("item-child-category").remove()
+        }
+        if (document.getElementById("item-grandchild-category")){
+            if (document.getElementById("item-child-category").value != "" && document.getElementById("item-grandchild-category").value == ""){
+              document.getElementById("item-grandchild-category").remove()
+            }
+        }
+
+      }
+      document.getElementById("detail-product_search").submit()
+    })
+    
+  }
 }
 window.addEventListener("load", category)
