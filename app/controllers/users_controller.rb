@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def show
-
+    @user_like_products = current_user.like_products
   end
 
   def edit

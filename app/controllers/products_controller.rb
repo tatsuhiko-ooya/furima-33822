@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @likes_count = @product.likes.count
   end
 
   def update

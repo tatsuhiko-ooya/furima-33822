@@ -5,26 +5,58 @@
     <%= render 'shared/side-list'%>
   </div>
   <div class = "l-main">
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">ニックネーム</th>
-          <td class="user-detail-value"><%= @user.nickname %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">email</th>
-          <td class="user-detail-value"><%= @user.email %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">フルネーム</th>
-          <td class="user-detail-value"><%= @user.last_name %> <%= @user.first_name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">誕生日</th>
-          <td class="user-detail-value"><%= @user.birth_day %></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class= "user_profile">
+      <h2 class = "search-result">ユーザープロフィール</h2>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-item">ニックネーム</th>
+            <td class="user-detail-value"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="detail-item">email</th>
+            <td class="user-detail-value"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th class="detail-item">フルネーム</th>
+            <td class="user-detail-value"><%= @user.last_name %> <%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <th class="detail-item">誕生日</th>
+            <td class="user-detail-value"><%= @user.birth_day %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class = "user_likes">
+        <h2 class = "search-result">いいね！した商品一覧</h2>
+        <ul class='search-item-lists'>
+          <% if @user_like_products.any? %>
+              <% @user_like_products.each do |product| %>
+                <% if product.order.nil? %>
+                  <li class='list'>
+                    <%= link_to product_path(product) do %> 
+                      <div class='item-img-content'>
+                        <%= image_tag product.image, class: "item-img" %>
+                      </div>
+                      <div class='item-info'>
+                        <h3 class='item-name'>
+                          <%= product.name %>
+                        </h3>
+                        <div class='item-price'>
+                          <span><%= product.price %>円<br><%= product.delivery_fee.name %></span>
+                          <%= render 'likes/like', product: product %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+          <% else %>
+            <div>いいね！した商品はありません<div>
+          <% end %>
+        </ul>
+    </div>
   </div>
 </div>
 
