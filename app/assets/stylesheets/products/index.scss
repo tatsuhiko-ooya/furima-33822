@@ -294,7 +294,7 @@ a {
 }
 
 
-.star-btn {
+.heart-btn {
   display: flex;
   align-items: center;
 }
@@ -310,3 +310,25 @@ a {
 }
 
 /* //商品一覧 */
+
+// likes.scss
+
+.like-link {
+  text-decoration: none;
+}
+
+.like-link:hover {
+  background-color: #fff!important;
+}
+
+.like-btn {
+  font-size: 15px;
+  color: #808080;
+  margin-right: 0.5vw;
+}
+ 
+.unlike-btn {
+  font-size: 15px;
+  color: red;
+  margin-right: 0.5vw;
+}
