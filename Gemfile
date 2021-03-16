@@ -73,6 +73,7 @@ gem 'payjp'
 gem 'aws-sdk-s3',require: false
 gem 'ransack'
 gem 'ancestry'
+gem 'font-awesome-sass', '~> 5.12.0'
 
 group :production do
   gem 'unicorn', '5.4.1'

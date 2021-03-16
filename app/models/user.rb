@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :orders
+  has_many :likes
+  has_many :like_products, through: :likes, source: :product
 
   with_options presence: true do
     validates :nickname
@@ -19,4 +21,9 @@ class User < ApplicationRecord
   end
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '英数字を混合させてください' }
+
+  def is_liked?(product)
+    self.likes.where(product_id: product.id).exists?
+  end
+
 end

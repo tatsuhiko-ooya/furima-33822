@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :orders, only: [:create, :index]
+    resources :likes, only: [:create, :destroy]
   end
 
   resources :users, only: [:show, :edit, :update, :destroy]

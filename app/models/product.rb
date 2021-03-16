@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :order
+  has_many :likes
+  has_many :like_users, through: :likes, source: :user
 
   with_options presence: true do
     validates :name
