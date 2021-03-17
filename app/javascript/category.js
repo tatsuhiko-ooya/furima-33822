@@ -64,7 +64,7 @@ const category = () => {
               
               const grandChildCategories = XHR.response
               let grandChildClassName = "select-box"
-              let grandChildParamName = "product[child_category_id]"
+              let grandChildParamName = "product[category_id]"
               if (location.pathname.match("products/search")){
                 grandChildClassName = "search-input"
                 grandChildParamName = "q[category_id_in]"
