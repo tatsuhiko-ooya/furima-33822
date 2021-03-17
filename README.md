@@ -18,6 +18,9 @@
 - has_many :products
 - has_many :orders
 - has_many :comments
+- has_many :comment_products, through: comments, source: product
+- has_many :likes
+- has_many :like_products, through: likes, source: product
 
 ## products テーブル
 
@@ -38,6 +41,9 @@
 - belongs_to :user
 - has_one :order
 - has_many :comments
+- has_many :comment_users, through: comments, source: user
+- has_many :likes
+- has_many :like_users, through: likes, source: user
 
 ## orders テーブル
 
