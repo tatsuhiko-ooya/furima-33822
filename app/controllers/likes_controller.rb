@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :find_product
+  before_action :authenticate_user!
 
   def create
     like = Like.create(user_id: current_user.id, product_id: @product.id)

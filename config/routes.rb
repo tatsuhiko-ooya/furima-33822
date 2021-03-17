@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
     resources :orders, only: [:create, :index]
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   resources :users, only: [:show, :edit, :update, :destroy]

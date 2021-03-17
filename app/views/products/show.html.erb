@@ -79,6 +79,23 @@
     </div>
   </div>
   <%# /商品の概要 %>
+  <% if @product.has_comments? %>
+    <div class="message-content">
+      <ul class="message-items">
+        <% @comments.each do |comment| %>
+          <li class="message_item">
+            <%= link_to 'user.name', '#' %>
+            <div class="message-body">
+              <div class="message-body-text">
+              </div>
+              <div class="message-body-time">
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="comment-box">
     <form>
