@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!
+    before_action :find_product
 
   def create
-    if Comment.create(comment_params)
-      redirect_to product_path(@product)
+    comment = Comment.new(comment_params)
+    if comment.save
+      ActionCable.server.broadcast 'comment_channel', comment: comment, user: comment.user
     else
       @comments = Comment.where(product_id: @product.id).includes(:user)
+      @comment = Comment.new
       render 'products/show'
     end
   end

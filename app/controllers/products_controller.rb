@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
 
   def show
     @likes_count = @product.likes.count
+    @comment = Comment.new
     @comments = Comment.where(product_id: @product.id).includes(:user)
   end
 

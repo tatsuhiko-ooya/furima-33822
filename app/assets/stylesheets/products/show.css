@@ -187,6 +187,33 @@
   margin: 10px 5px 0 0;
 }
 
+
+
+.message_item {
+  margin-bottom: 5px;
+  display: flex;
+}
+.comment-user-name {
+  width: 100px;
+  margin: 10px 0 0 10px;
+  text-align: center;
+  color: black;
+}
+.message-body {
+  width: calc(100% - 100px);
+  background-color: #f8f8f8;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+.message-body-text {
+  font-size: 18px;
+}
+.message-body-time {
+  font-size: 14px;
+  color: gray;
+}
+
 .links {
   display: flex;
   justify-content: space-between;
