@@ -8,8 +8,10 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :order
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
+  has_many :comments, dependent: :destroy
+  has_many :comment_users, through: :comment, source: :user
 
   with_options presence: true do
     validates :name
@@ -23,5 +25,9 @@ class Product < ApplicationRecord
       validates :prefecture_id
     end
     validates :price, numericality: { greater_than: 299, less_than: 10_000_000, only_integer: true }
+  end
+
+  def has_comments?
+    self.comments.exists?
   end
 end

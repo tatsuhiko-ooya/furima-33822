@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :likes
   has_many :like_products, through: :likes, source: :product
+  has_many :comments
+  has_many :comment_products, through: :comments, source: :product
 
   with_options presence: true do
     validates :nickname
