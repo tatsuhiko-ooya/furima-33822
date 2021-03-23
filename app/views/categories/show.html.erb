@@ -1,4 +1,14 @@
 <%= render "shared/header" %>
+
+<% if @category.root? %>
+  <% breadcrumb :parent_category %>
+<% elsif @category.has_children? %>
+  <% breadcrumb :child_category %>
+<% else %>
+  <% breadcrumb :grandchild_category %>
+<% end %>
+<p><%= breadcrumbs separator: " &rsaquo; " %></p>
+
 <div class='main'>
 
   
@@ -42,3 +52,4 @@
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
 <%= render "shared/footer" %>
+

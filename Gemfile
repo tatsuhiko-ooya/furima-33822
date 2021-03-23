@@ -74,6 +74,7 @@ gem 'aws-sdk-s3',require: false
 gem 'ransack'
 gem 'ancestry'
 gem 'font-awesome-sass', '~> 5.12.0'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'
