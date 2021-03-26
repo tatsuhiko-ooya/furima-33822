@@ -25,6 +25,14 @@
             <th class="detail-item">誕生日</th>
             <td class="user-detail-value"><%= @user.birth_day %></td>
           </tr>
+          <tr>
+            <th class="detail-item">カード情報</th>
+              <% unless current_user.card.present? %>
+              <td class="user-detail-value"><%= link_to "クレジットカードを登録してください", new_card_path %></td>
+            <%else%>
+              <td class="user-detail-value"><%= "**** **** **** " + @card[:last4] %></td>
+            <%end%>
+          </tr>
         </tbody>
       </table>
     </div>

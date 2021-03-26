@@ -1,6 +1,11 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
+
+
   def new
-    @product = Product.find(session[:product_id])
+    if session[:product_id] = nil?
+      @product = Product.find(session[:product_id])
+    end
     @card = Card.new
   end
 
@@ -15,13 +20,21 @@ class CardsController < ApplicationController
     card_token: params[:card_token], 
     customer_token: customer.id, 
     user_id: current_user.id 
-  )
+   )
     if card.save
-      @product = Product.find(session[:product_id])
-      session[:product_id] = nil
-      redirect_to product_orders_path(@product)
+      if session[:product_id] = nil?
+        @product = Product.find(session[:product_id])
+        session[:product_id] = nil
+        redirect_to product_orders_path(@product)
+      else
+        redirect_to user_path(current_user)
+      end
     else
-      redirect_to new_product_card(params[:product_id])
+      if session[:product_id] = nil?
+        redirect_to new_product_card(params[:product_id])
+      else
+        redirect_to user_path(current_user)
+      end
     end
   end
 end
