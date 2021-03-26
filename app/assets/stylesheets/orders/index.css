@@ -78,6 +78,20 @@
 .item-payment-price {
   font-size: 25px;
 }
+.user_card {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #f5f5f5;
+}
+.card_number{
+  font-weight: bold;
+}
+.card_exp{
+  font-weight: bold;
+}
+
 
 /* /支払額の表示 */
 

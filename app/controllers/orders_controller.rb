@@ -2,6 +2,14 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_product
   def index
+    unless current_user.card.present?
+      session[:product_id] = @product.id
+      redirect_to new_card_path unless current_user.card.present?
+    end
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
+    card = Card.find_by(user_id: current_user.id)
+    customer = Payjp::Customer.retrieve(card.customer_token)
+    @card = customer.cards.first
     @order_address = OrderAddress.new
   end
 
@@ -31,9 +39,10 @@ class OrdersController < ApplicationController
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer_token = current_user.card.customer_token
     Payjp::Charge.create(
         amount: @product.price,
-        card: order_params[:token],
+        customer: customer_token,
         currency: 'jpy'
     )
   end

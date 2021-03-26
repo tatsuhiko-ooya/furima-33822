@@ -21,6 +21,8 @@
 - has_many :comment_products, through: comments, source: product
 - has_many :likes
 - has_many :like_products, through: likes, source: product
+- has_one  :card
+- has_one  :order_address
 
 ## products テーブル
 
@@ -112,4 +114,32 @@
 
 - has_many :products
 - has_ancestry
+
+## cards テーブル
+
+| Column          | Type         | Options                        |
+| --------------- | ------------ | ------------------------------ |
+| card_token      | string       | null: false                    |
+| customer_token  | string       |                                |
+| user            | references   | foreign_key: true
+
+### Association
+
+- belongs_to :user
+
+## order_addresses テーブル
+
+| Column          | Type         | Options                        |
+| --------------- | ------------ | ------------------------------ |
+| post_code       | string       | null: false                    |
+| prefecture_id   | integer       | null: false                    |
+| block           | string       | null: false                    |
+| building        | string       |                                |
+| phone_number    | string       | null: false                    |
+| city            | string       | null: false                    |
+| order           | references   | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
 

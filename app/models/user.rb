@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :like_products, through: :likes, source: :product
   has_many :comments
   has_many :comment_products, through: :comments, source: :product
+  has_one :card, dependent: :destroy
+  has_one :shipping_address, dependent: :destroy
 
   with_options presence: true do
     validates :nickname
