@@ -27,3 +27,13 @@
   font-size: 18px;
   margin-bottom: 20px;
 }
+.detail_shipping_address{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.shipping_address_edit_link a{
+  margin-right: 40px;
+  color: blue;
+}

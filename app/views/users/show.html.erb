@@ -6,7 +6,7 @@
   </div>
   <div class = "l-main">
     <div class= "user_profile">
-      <h2 class = "search-result">ユーザープロフィール</h2>
+      <h2 class = "search-result" id = "#0">ユーザープロフィール</h2>
       <table class="detail-table">
         <tbody>
           <tr>
@@ -33,39 +33,33 @@
               <td class="user-detail-value"><%= "**** **** **** " + @card[:last4] %></td>
             <%end%>
           </tr>
+          <% if current_user.shipping_address.present? %>
+          <tr>
+            <th class="detail-item">配送先</th>
+              <td class="user-detail-value detail_shipping_address">
+                <div class="shipping_address_info">
+                  <div class="shipping_address_post">
+                    〒<%= current_user.shipping_address.post_code %>
+                  </div>
+                  <div class = "shipping_address_name">
+                    <%= current_user.shipping_address.prefecture.name %>
+                    <%= current_user.shipping_address.city %>
+                    <%= current_user.shipping_address.block %>
+                  </div>
+                </div>
+                <div class = "shipping_address_edit_link">
+                  <%= link_to "配送先を変更する",edit_shipping_address_path(current_user.shipping_address) %>
+                </div>
+              </td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
-    <div class = "user_likes">
-        <h2 class = "search-result">いいね！した商品一覧</h2>
-        <ul class='search-item-lists'>
-          <% if @user_like_products.any? %>
-              <% @user_like_products.each do |product| %>
-                <% if product.order.nil? %>
-                  <li class='list'>
-                    <%= link_to product_path(product) do %> 
-                      <div class='item-img-content'>
-                        <%= image_tag product.image, class: "item-img" %>
-                      </div>
-                      <div class='item-info'>
-                        <h3 class='item-name'>
-                          <%= product.name %>
-                        </h3>
-                        <div class='item-price'>
-                          <span><%= product.price %>円<br><%= product.delivery_fee.name %></span>
-                          <%= render 'likes/like', product: product %>
-                        </div>
-                      </div>
-                    <% end %>
-                  </li>
-                <% end %>
-              <% end %>
-          <% else %>
-            <div>いいね！した商品はありません<div>
-          <% end %>
-        </ul>
-    </div>
+    <%= render 'products', products: @user_like_products, content: "いいね！した", link_id: "#1" %>
+    <%= render 'products', products: @user_products, content: "出品中の", link_id: "#2" %>
+    <%= render 'products', products: @user_comment_products, content: "コメントした", link_id: "#3" %>
   </div>
 </div>
-
 <%= render 'shared/footer' %> 
+

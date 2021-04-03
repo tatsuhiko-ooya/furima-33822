@@ -1,10 +1,9 @@
 <ul>
-  <li><%= link_to 'マイページ', user_path(current_user), class: "l-side-menu-name" %></li>
-  <li><%= link_to 'いいね！一覧', '#', class: "l-side-menu-name" %></li>
-  <li><%= link_to '出品中の商品', '#', class: "l-side-menu-name" %></li>
-  <li><%= link_to 'コメントした商品', '#', class: "l-side-menu-name" %></li>
+  <li><%= link_to 'マイページ', '#0', class: "l-side-menu-name"%></li>
+  <li><%= link_to 'いいね！一覧', '#1', class: "l-side-menu-name"%></li>
+  <li><%= link_to '出品中の商品', '#2', class: "l-side-menu-name"%></li>
+  <li><%= link_to 'コメントした商品', '#3', class: "l-side-menu-name" %></li>
   <% if user_signed_in? && current_user == @user %>
-    <li><%= link_to 'やることリスト', '#', class: "l-side-menu-name" %></li>
     <li><%= link_to 'プロフィールを編集する', edit_user_path(current_user), class: "l-side-menu-name" %></li>
     <li><%= link_to '退会する', user_path(current_user), method: :delete, class: "l-side-menu-name", data: {confirm: '本当に退会しますか？'} %></li>
   <% end %>

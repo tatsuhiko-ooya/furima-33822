@@ -3,7 +3,7 @@ class CardsController < ApplicationController
 
 
   def new
-    if session[:product_id] = nil?
+    if session[:product_id]
       @product = Product.find(session[:product_id])
     end
     @card = Card.new
@@ -16,25 +16,25 @@ class CardsController < ApplicationController
    card: params[:card_token] 
    )
 
-   card = Card.new( 
+   @card = Card.new( 
+
     card_token: params[:card_token], 
     customer_token: customer.id, 
     user_id: current_user.id 
    )
-    if card.save
-      if session[:product_id] = nil?
+   
+    if @card.save
+      if session[:product_id]
         @product = Product.find(session[:product_id])
         session[:product_id] = nil
+        binding.pry
         redirect_to product_orders_path(@product)
       else
         redirect_to user_path(current_user)
       end
     else
-      if session[:product_id] = nil?
-        redirect_to new_product_card(params[:product_id])
-      else
-        redirect_to user_path(current_user)
-      end
+      render "new"
+      
     end
   end
 end
