@@ -27,7 +27,6 @@ class CardsController < ApplicationController
       if session[:product_id]
         @product = Product.find(session[:product_id])
         session[:product_id] = nil
-        binding.pry
         redirect_to product_orders_path(@product)
       else
         redirect_to user_path(current_user)
