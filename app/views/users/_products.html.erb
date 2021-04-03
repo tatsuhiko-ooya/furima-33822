@@ -1,0 +1,28 @@
+<div class = "user_likes">
+  <h2 class = "search-result" id = <%= link_id %> ><%= "#{content}商品一覧"%></h2>
+  
+  <ul class='search-item-lists'>
+    <% if products.any? %>
+        <% products.each do |product| %>
+            <li class='list'>
+              <%= link_to product_path(product) do %> 
+                <div class='item-img-content'>
+                  <%= image_tag product.image, class: "item-img" %>
+                </div>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= product.name %>
+                  </h3>
+                  <div class='item-price'>
+                    <span><%= product.price %>円<br><%= product.delivery_fee.name %></span>
+                    <%= render 'likes/like', product: product %>
+                  </div>
+                </div>
+              <% end %>
+            </li>
+        <% end %>
+    <% else %>
+      <div><%= "#{content}商品はありません"%><div>
+    <% end %>
+  </ul>
+</div>
