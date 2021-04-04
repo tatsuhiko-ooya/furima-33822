@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @user_like_products = current_user.like_products
     @user_products = current_user.products
-    @user_comment_products = current_user.comment_products
+    @user_comment_products = current_user.comment_products.distinct
     if current_user.card.present?
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
       card = Card.find_by(user_id: current_user.id)
