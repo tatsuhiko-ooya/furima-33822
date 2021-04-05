@@ -11,13 +11,10 @@
     <% end %>
     </ul>
     <% @categories.each_with_index do |category, i| %>
-        <%# 下記にカテゴリーidを付与 %>
       <div class = "category-field"> 
-        <%# 下記にカテゴリーの名前を付与 %>
         <h2 class = "category-parent-title" id=<%= "##{i}" %>><%= category.name %></h2>
         <div class = "category-box">
           <%= link_to 'すべて', category_path(category.id), class: 'category-all' %>
-          <%# 下記にカテゴリーの子構造の名前を付与 %>
           <% category.children.each do |category_child| %>
             <h3 class = "category-child-title"> <%= category_child.name %> </h3>
             <div class = "category-child-childs">
@@ -36,9 +33,6 @@
         </div>
       </div>
     <% end %>
-    
-    
-
   </div>
 </div>
 <%= render 'shared/footer' %>

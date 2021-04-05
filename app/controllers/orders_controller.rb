@@ -11,12 +11,7 @@ class OrdersController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_token)
     @card = customer.cards.first
     if current_user.shipping_address.present?
-      @order_address = OrderAddress.new
-      @order_address.prefecture_id = current_user.shipping_address.prefecture_id
-      @order_address.post_code = current_user.shipping_address.post_code
-      @order_address.city = current_user.shipping_address.city
-      @order_address.phone_number = current_user.shipping_address.phone_number
-      @order_address.block = current_user.shipping_address.block
+      insert_order_address
     else
       @order_address = OrderAddress.new
     end
@@ -66,6 +61,15 @@ class OrdersController < ApplicationController
         customer: customer_token,
         currency: 'jpy'
     )
+  end
+
+  def insert_order_address
+    @order_address = OrderAddress.new
+    @order_address.prefecture_id = current_user.shipping_address.prefecture_id
+    @order_address.post_code = current_user.shipping_address.post_code
+    @order_address.city = current_user.shipping_address.city
+    @order_address.phone_number = current_user.shipping_address.phone_number
+    @order_address.block = current_user.shipping_address.block
   end
 
 end
