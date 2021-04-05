@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_product, only: [:edit, :show, :update, :destroy]
   before_action :check_created_product_user, only: [:edit, :update, :destroy]
-  # before_action :search_product, only: [:index, :search, :show]
 
   def index
     @products = Product.order(created_at: :desc)
@@ -18,7 +17,6 @@ class ProductsController < ApplicationController
 
   def get_category_grandchild
     @category_grandchild_array = Category.find_by(id: params[:id]).children
-    # render json: { grandchild_array: @category_grandchild_array}
   end
 
   def create
